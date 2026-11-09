@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // Self-contained server bundle (server.js + minimal node_modules) for the EC2 deploy.
+  output: 'standalone',
   poweredByHeader: false,
   compress: true,
   async headers() {

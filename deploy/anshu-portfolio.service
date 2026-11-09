@@ -1,0 +1,25 @@
+[Unit]
+Description=anshu.tech portfolio (Next.js)
+After=network.target
+
+[Service]
+Type=simple
+User=anshu-web
+Group=anshu-web
+WorkingDirectory=/opt/anshu-portfolio/current
+Environment=NODE_ENV=production
+Environment=PORT=3010
+Environment=HOSTNAME=127.0.0.1
+Environment=NEXT_TELEMETRY_DISABLED=1
+ExecStart=/usr/bin/node server.js
+Restart=always
+RestartSec=3
+MemoryMax=400M
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/anshu-portfolio
+
+[Install]
+WantedBy=multi-user.target

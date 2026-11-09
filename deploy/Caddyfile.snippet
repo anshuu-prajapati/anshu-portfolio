@@ -1,0 +1,12 @@
+# Appended to /etc/caddy/Caddyfile on the server. Caddy issues and renews the HTTPS certificates.
+anshu.tech {
+	encode zstd gzip
+	reverse_proxy 127.0.0.1:3010
+	log {
+		output file /var/log/caddy/anshu-portfolio.log
+	}
+}
+
+www.anshu.tech {
+	redir https://anshu.tech{uri} permanent
+}
